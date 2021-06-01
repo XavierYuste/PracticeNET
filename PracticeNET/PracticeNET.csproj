@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="folder-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="Microsoft.Vbe.Interop.Forms">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>
@@ -35,6 +39,10 @@
 
   <ItemGroup>
     <PackageReference Include="Simplify.Windows.Forms" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="folder-icon.png" />
   </ItemGroup>
 
 </Project>

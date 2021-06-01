@@ -20,9 +20,12 @@ namespace PracticeNET
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string wordToFind { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
         }
 
         private string _ButtonText;
@@ -45,6 +48,16 @@ namespace PracticeNET
                 _path = dialog.SelectedPath.ToString();
             }
             MessageBox.Show(_path);
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            wordToFind = TextBoxInput.Text;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("La palabra a buscar es: " + wordToFind);
         }
     }
 }
