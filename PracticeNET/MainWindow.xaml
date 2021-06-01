@@ -8,26 +8,44 @@
         Title="Word Counter" Height="599.5" Width="1000" Icon="/folder-icon.png" Background="AliceBlue" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="584" Margin="-3,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="242" Fill="#FFCCE4F9"/>
-        <Button Content="Select Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="122" Click="Button_Click" Margin="86,183,0,0"/>
-        <Image HorizontalAlignment="Left" Height="29" Margin="52,183,0,0" VerticalAlignment="Top" Width="37" Source="/folder-icon.png"/>
-        <TextBox x:Name="TextBoxInput" HorizontalAlignment="Left" Height="66" Margin="56,274,0,0" Text="Input the word" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Search" HorizontalAlignment="Left" Height="33" Margin="56,368,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_1"/>
-        <DataGrid x:Name="myDataGrid" Margin="266,103,59,183" IsReadOnly="True"  CanUserAddRows="False" />
+        <Button Content="Select Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="122" Click="Button_Click" Margin="72,178,0,0" FontFamily="Montserrat"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="42,179,0,0" VerticalAlignment="Top" Width="37" Source="/folder-icon.png"/>
+        <TextBox x:Name="TextBoxInput" HorizontalAlignment="Left" Height="31" Margin="42,252,0,0" Text="Input the word" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Search" HorizontalAlignment="Left" Height="33" Margin="42,368,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_1" FontFamily="Montserrat"/>
+        <DataGrid x:Name="myDataGrid" Margin="289,103,50,183" IsReadOnly="True"  CanUserAddRows="False" />
 
-        <Label x:Name="wordLabel" Content="Word: " HorizontalAlignment="Left" Margin="266,52,0,0" VerticalAlignment="Top" Height="28" Width="216" Foreground="#FF350091" Background="White">
+        <Label x:Name="wordLabel" Content="Word: " HorizontalAlignment="Left" Margin="289,52,0,0" VerticalAlignment="Top" Height="28" Width="216" Foreground="#FF350091" Background="White">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
 
-        <Label x:Name="pathLabel" Content="Path Selected: " HorizontalAlignment="Left" Margin="500,52,0,0" VerticalAlignment="Top" Height="28" Width="419" Foreground="#FF350091" Background="White">
+        <Label x:Name="pathLabel" Content="Path Selected: " HorizontalAlignment="Left" Margin="531,52,0,0" VerticalAlignment="Top" Height="28" Width="419" Foreground="#FF350091" Background="White">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <Label Content="Word To Find:" HorizontalAlignment="Left" Margin="56,239,0,0" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="115" Margin="56,30,0,0" VerticalAlignment="Top" Width="152" Source="/roche-logo.png"/>
-        <Label Content="Word Counter" HorizontalAlignment="Left" Margin="56,129,0,0" VerticalAlignment="Top" Height="27" Width="152" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Background="{x:Null}" FontStyle="Normal"/>
+        <Label HorizontalContentAlignment="Left" Content="Word To Find:" HorizontalAlignment="Left" Margin="42,225,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Montserrat"/>
+        <Image HorizontalAlignment="Left" Height="115" Margin="42,26,0,0" VerticalAlignment="Top" Width="152" Source="/roche-logo.png"/>
+        <Label HorizontalContentAlignment="Center" Content="Word Counter" HorizontalAlignment="Left" Margin="42,123,0,0" VerticalAlignment="Top" Height="32" Width="152" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" FontStyle="Normal" FontWeight="Normal" FontFamily="Montserrat" FontSize="18" RenderTransformOrigin="0.5,0.5" Foreground="Black" Background="#FFE4F6FF">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="4" ShadowDepth="2" Opacity="0.5"/>
+            </Label.Effect>
+        </Label>
+        <StackPanel Margin="10,0,10,10">
+            <ComboBox x:Name="itemsQuantity" Height="25" Width="46" HorizontalAlignment="Left" Margin="32,320,0,0">
+            </ComboBox>
+        </StackPanel>
+        <Label HorizontalContentAlignment="Left" Content="Show" HorizontalAlignment="Left" Margin="42,292,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Montserrat"/>
+        <Label HorizontalContentAlignment="Left" Content="results" HorizontalAlignment="Left" Margin="92,317,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Montserrat" Height="27" Width="56"/>
     </Grid>
 
 

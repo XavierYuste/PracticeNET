@@ -24,6 +24,7 @@ namespace PracticeNET
     {
         public string _wordToFind { get; set; }
         public string _pathToFind { get; set; }
+        public string _countShow { get; set; }
 
         public MainWindow()
         {
@@ -68,6 +69,18 @@ namespace PracticeNET
             wordLabel.Content = "Word: " + _wordToFind;
 
             DirectoryAccess da = new DirectoryAccess();
+
+            int n;
+            if (int.TryParse(itemsQuantity.Text.ToString(), out n))
+            {
+                da.CountShow = n;
+            }
+            else
+            {
+                da.CountShow = 10;
+            }
+
+
             da.SetInitialPath(_pathToFind);
             da.SetInitialWord(_wordToFind);
 
@@ -112,9 +125,9 @@ namespace PracticeNET
         private void fillingDataGridUsingDataTable()
         {
             DataTable dt = new DataTable();
-            DataColumn id = new DataColumn("id",typeof(string));
-            DataColumn name = new DataColumn("name", typeof(string));
-            DataColumn filePath = new DataColumn("path", typeof(string));
+            DataColumn id = new DataColumn("Document Name", typeof(string));
+            DataColumn name = new DataColumn("Occurences", typeof(string));
+            DataColumn filePath = new DataColumn("File Path", typeof(string));
 
             dt.Columns.Add(id);
             dt.Columns.Add(name);
@@ -127,6 +140,20 @@ namespace PracticeNET
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.fillingDataGridUsingDataTable();
+            this.SetUpCountSelection();
         }
+
+
+        private void SetUpCountSelection()
+        {
+            for (int i = 1; i <= 20; i++)
+            {
+                ComboBoxItem cb = new ComboBoxItem();
+                cb.Content = i.ToString();
+                itemsQuantity.Items.Add(cb);
+            }
+            itemsQuantity.SelectedIndex = 9;
+        }
+
     }
 }
