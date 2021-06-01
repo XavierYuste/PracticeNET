@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -65,8 +66,36 @@ namespace PracticeNET
             DirectoryAccess da = new DirectoryAccess();
             da.SetInitialPath(_pathToFind);
             da.SetInitialWord(_wordToFind);
-            da.GetAllDirectoryPaths();
+            da.GetAllDirectoryPathsUI();
             da.ReadAllLinesInFile();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void fillingDataGridUsingDataTable()
+        {
+            DataTable dt = new DataTable();
+            DataColumn id = new DataColumn("id",typeof(int));
+            DataColumn name = new DataColumn("name", typeof(string));
+
+            dt.Columns.Add(id);
+            dt.Columns.Add(name);
+
+            DataRow firstRow = dt.NewRow();
+            firstRow[0] = 1;
+            firstRow[1] = "hola";
+
+            dt.Rows.Add(firstRow);
+
+            myDataGrid.ItemsSource = dt.DefaultView;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.fillingDataGridUsingDataTable();
         }
     }
 }

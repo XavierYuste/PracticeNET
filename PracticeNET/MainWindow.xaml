@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeNET"
         mc:Ignorable="d"
-        Title="Word Counter" Height="450" Width="800" Icon="/folder-icon.png" Background="AliceBlue">
+        Title="Word Counter" Height="450" Width="800" Icon="/folder-icon.png" Background="AliceBlue" Loaded="Window_Loaded">
     <Grid>
         <Button Content="Select Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click" Margin="53,131,0,0"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="53,22,0,0" VerticalAlignment="Top" Width="100" Source="/folder-icon.png"/>
         <TextBox Name="TextBoxInput" HorizontalAlignment="Left" Height="29" Margin="53,0,0,0" Text="Input the word" TextWrapping="Wrap" VerticalAlignment="Center" Width="102" TextChanged="TextBox_TextChanged"/>
         <Button Content="Accept" HorizontalAlignment="Left" Height="29" Margin="160,0,0,0" VerticalAlignment="Center" Width="86" Click="Button_Click_1"/>
+        <DataGrid Name="myDataGrid" Margin="328,55,211,115" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True"  CanUserAddRows="False" />
     </Grid>
 
 
