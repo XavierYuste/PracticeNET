@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="folder-icon.png" />
+    <None Remove="roche-logo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,6 +48,7 @@
 
   <ItemGroup>
     <Resource Include="folder-icon.png" />
+    <Resource Include="roche-logo.png" />
   </ItemGroup>
 
 </Project>

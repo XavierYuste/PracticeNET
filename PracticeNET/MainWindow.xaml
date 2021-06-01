@@ -5,13 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PracticeNET"
         mc:Ignorable="d"
-        Title="Word Counter" Height="450" Width="800" Icon="/folder-icon.png" Background="AliceBlue" Loaded="Window_Loaded">
+        Title="Word Counter" Height="599.5" Width="1000" Icon="/folder-icon.png" Background="AliceBlue" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Select Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Height="32" Width="102" Click="Button_Click" Margin="53,131,0,0"/>
-        <Image HorizontalAlignment="Left" Height="100" Margin="53,22,0,0" VerticalAlignment="Top" Width="100" Source="/folder-icon.png"/>
-        <TextBox Name="TextBoxInput" HorizontalAlignment="Left" Height="29" Margin="53,0,0,0" Text="Input the word" TextWrapping="Wrap" VerticalAlignment="Center" Width="102" TextChanged="TextBox_TextChanged"/>
-        <Button Content="Accept" HorizontalAlignment="Left" Height="29" Margin="160,0,0,0" VerticalAlignment="Center" Width="86" Click="Button_Click_1"/>
-        <DataGrid Name="myDataGrid" Margin="328,55,211,115" SelectionChanged="DataGrid_SelectionChanged" IsReadOnly="True"  CanUserAddRows="False" />
+        <Rectangle HorizontalAlignment="Left" Height="584" Margin="-3,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="242" Fill="#FFCCE4F9"/>
+        <Button Content="Select Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Height="29" Width="122" Click="Button_Click" Margin="86,183,0,0"/>
+        <Image HorizontalAlignment="Left" Height="29" Margin="52,183,0,0" VerticalAlignment="Top" Width="37" Source="/folder-icon.png"/>
+        <TextBox x:Name="TextBoxInput" HorizontalAlignment="Left" Height="66" Margin="56,274,0,0" Text="Input the word" TextWrapping="Wrap" VerticalAlignment="Top" Width="152" TextChanged="TextBox_TextChanged"/>
+        <Button Content="Search" HorizontalAlignment="Left" Height="33" Margin="56,368,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click_1"/>
+        <DataGrid x:Name="myDataGrid" Margin="266,103,59,183" IsReadOnly="True"  CanUserAddRows="False" />
+
+        <Label x:Name="wordLabel" Content="Word: " HorizontalAlignment="Left" Margin="266,52,0,0" VerticalAlignment="Top" Height="28" Width="216" Foreground="#FF350091" Background="White">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+
+        <Label x:Name="pathLabel" Content="Path Selected: " HorizontalAlignment="Left" Margin="500,52,0,0" VerticalAlignment="Top" Height="28" Width="419" Foreground="#FF350091" Background="White">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Label Content="Word To Find:" HorizontalAlignment="Left" Margin="56,239,0,0" VerticalAlignment="Top"/>
+        <Image HorizontalAlignment="Left" Height="115" Margin="56,30,0,0" VerticalAlignment="Top" Width="152" Source="/roche-logo.png"/>
+        <Label Content="Word Counter" HorizontalAlignment="Left" Margin="56,129,0,0" VerticalAlignment="Top" Height="27" Width="152" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Background="{x:Null}" FontStyle="Normal"/>
     </Grid>
 
 

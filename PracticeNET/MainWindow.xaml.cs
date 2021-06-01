@@ -50,48 +50,79 @@ namespace PracticeNET
                 System.Windows.Forms.DialogResult result = dialog.ShowDialog();
                 _path = dialog.SelectedPath.ToString();
             }
-            MessageBox.Show(_path);
+            MessageBox.Show("Selected folder: " + _path, "WordCounter");
             _pathToFind = _path;
+            pathLabel.Content = "Path: " + _pathToFind;
         }
+
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             _wordToFind = TextBoxInput.Text;
         }
 
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("La palabra a buscar es: " + _wordToFind);
-            MessageBox.Show("El path donde voy a buscar es: " + _pathToFind);
+            pathLabel.Content = "Path: " + _pathToFind;
+            wordLabel.Content = "Word: " + _wordToFind;
+
             DirectoryAccess da = new DirectoryAccess();
             da.SetInitialPath(_pathToFind);
             da.SetInitialWord(_wordToFind);
-            da.GetAllDirectoryPathsUI();
-            da.ReadAllLinesInFile();
+
+            this.updateDataGridUsingData(da);
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void updateDataGridUsingData(DirectoryAccess da)
         {
-            
+            var sortedDict = da.ReadAllLinesInFileUI();
+
+            DataTable dt = new DataTable();
+            DataColumn id = new DataColumn("Document Name", typeof(string));
+            DataColumn name = new DataColumn("Occurences", typeof(string));
+            DataColumn filePath = new DataColumn("File Path", typeof(string));
+
+            dt.Columns.Add(id);
+            dt.Columns.Add(name);
+            dt.Columns.Add(filePath);
+
+            foreach (var item in sortedDict)
+            {
+                Console.WriteLine(item.Key + " : " + item.Value + " occurrences");
+
+                DataRow firstRow = dt.NewRow();
+                firstRow[0] = item.Key;
+                firstRow[1] = item.Value;
+                firstRow[2] = _pathToFind + @"\" + item.Key;
+                dt.Rows.Add(firstRow);
+
+            }
+
+            if (sortedDict.Count() == 0)
+            {
+                MessageBox.Show("There are no occurences with this word", "WordCounter", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
+            myDataGrid.ItemsSource = dt.DefaultView;
         }
+
 
         private void fillingDataGridUsingDataTable()
         {
             DataTable dt = new DataTable();
-            DataColumn id = new DataColumn("id",typeof(int));
+            DataColumn id = new DataColumn("id",typeof(string));
             DataColumn name = new DataColumn("name", typeof(string));
+            DataColumn filePath = new DataColumn("path", typeof(string));
 
             dt.Columns.Add(id);
             dt.Columns.Add(name);
-
-            DataRow firstRow = dt.NewRow();
-            firstRow[0] = 1;
-            firstRow[1] = "hola";
-
-            dt.Rows.Add(firstRow);
+            dt.Columns.Add(filePath);
 
             myDataGrid.ItemsSource = dt.DefaultView;
         }
+
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
