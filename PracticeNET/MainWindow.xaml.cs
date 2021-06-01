@@ -94,7 +94,7 @@ namespace PracticeNET
 
             DataTable dt = new DataTable();
             DataColumn id = new DataColumn("Document Name", typeof(string));
-            DataColumn name = new DataColumn("Occurences", typeof(string));
+            DataColumn name = new DataColumn("Occurrences", typeof(string));
             DataColumn filePath = new DataColumn("File Path", typeof(string));
 
             dt.Columns.Add(id);
@@ -115,7 +115,7 @@ namespace PracticeNET
 
             if (sortedDict.Count() == 0)
             {
-                MessageBox.Show("There are no occurences with this word", "WordCounter", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("There are no occurrences with this word", "WordCounter", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
 
             myDataGrid.ItemsSource = dt.DefaultView;
@@ -126,7 +126,7 @@ namespace PracticeNET
         {
             DataTable dt = new DataTable();
             DataColumn id = new DataColumn("Document Name", typeof(string));
-            DataColumn name = new DataColumn("Occurences", typeof(string));
+            DataColumn name = new DataColumn("Occurrences", typeof(string));
             DataColumn filePath = new DataColumn("File Path", typeof(string));
 
             dt.Columns.Add(id);
