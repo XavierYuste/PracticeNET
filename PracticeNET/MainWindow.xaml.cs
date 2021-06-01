@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using YourAwesomeProject;
 
 namespace PracticeNET
 {
@@ -20,7 +21,8 @@ namespace PracticeNET
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string wordToFind { get; set; }
+        public string _wordToFind { get; set; }
+        public string _pathToFind { get; set; }
 
         public MainWindow()
         {
@@ -48,16 +50,23 @@ namespace PracticeNET
                 _path = dialog.SelectedPath.ToString();
             }
             MessageBox.Show(_path);
+            _pathToFind = _path;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            wordToFind = TextBoxInput.Text;
+            _wordToFind = TextBoxInput.Text;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("La palabra a buscar es: " + wordToFind);
+            MessageBox.Show("La palabra a buscar es: " + _wordToFind);
+            MessageBox.Show("El path donde voy a buscar es: " + _pathToFind);
+            DirectoryAccess da = new DirectoryAccess();
+            da.SetInitialPath(_pathToFind);
+            da.SetInitialWord(_wordToFind);
+            da.GetAllDirectoryPaths();
+            da.ReadAllLinesInFile();
         }
     }
 }

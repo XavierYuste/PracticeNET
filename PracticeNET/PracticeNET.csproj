@@ -42,6 +42,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\YourAwesomeProject\YourAwesomeProject\YourAwesomeProject.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="folder-icon.png" />
   </ItemGroup>
 
