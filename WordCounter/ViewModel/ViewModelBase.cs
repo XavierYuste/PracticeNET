@@ -23,8 +23,6 @@ namespace ViewModelBase
             return false;
         }
 
-        public ICommand ChangeNameCommand { get; }
-
         public ICommand FolderOpenCommand { get; }
 
         public ICommand SearchWordCommand { get; }

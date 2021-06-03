@@ -57,7 +57,7 @@
         <Image HorizontalAlignment="Left" Height="33" Margin="39,178,0,0" VerticalAlignment="Top" Width="30" Source="/folder-icon.png"/>
 
 
-        <ListView Margin="289,107,0,183" ItemsSource="{Binding Path=MySampleGrid}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="661">
+        <ListView Margin="289,107,0,183" ItemsSource="{Binding Path=SearchResults}" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Width="661">
             <ListView.View>
                 <GridView>
                     <GridViewColumn HeaderContainerStyle="{StaticResource ListViewStyle}" Header="Name" Width="180" DisplayMemberBinding="{Binding Path=Name}" />
