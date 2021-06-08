@@ -11,6 +11,8 @@ using System.Windows.Controls;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
+using System.ComponentModel;
+using System.Threading;
 
 namespace WordCounter
 {
@@ -216,15 +218,29 @@ namespace WordCounter
         /// </summary>
         private void OnSearchWord(object commandParameter)
         {
-            UIPath = "Path: " + _pathToFind;
-            WordToFindUI = "Word: " + _wordToFind;
+            if (_pathToFind == null || _pathToFind == "")
+            {
+                MessageBox.Show("The path has not been initialized", "WordCounter", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (_wordToFind == null)
+                {
+                    MessageBox.Show("The word has not been initialized", "WordCounter", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    UIPath = "Path: " + _pathToFind;
+                    WordToFindUI = "Word: " + _wordToFind;
 
-            DirectoryAccess da = new DirectoryAccess();
+                    DirectoryAccess da = new DirectoryAccess();
 
-            da.CountShow = SelectedItem;
-            da.SetInitialPath(_pathToFind);
-            da.SetInitialWord(_wordToFind);
-            this.updateDataGridUsingData(da);
+                    da.CountShow = SelectedItem;
+                    da.SetInitialPath(_pathToFind);
+                    da.SetInitialWord(_wordToFind);
+                    this.updateDataGridUsingData(da);
+                }
+            }
         }
 
         /// <summary>
@@ -249,14 +265,18 @@ namespace WordCounter
             this.SearchResults = null;
             List<Result> auxList = new List<Result>();
             var sortedDict = da.ReadAllLinesInFileUI();
+
             foreach (var item in sortedDict)
             {
                 Console.WriteLine(item.Key + " : " + item.Value + " occurrences");
                 Result r = new Result(item.Key, item.Value, _pathToFind + @"\" + item.Key);
                 auxList.Add(r);
             }
+            if (auxList.Count == 0)
+            {
+                MessageBox.Show("No occurrences found", "WordCounter");
+            }
             SearchResults = auxList;
         }
-
     }
 }

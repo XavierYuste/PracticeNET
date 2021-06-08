@@ -26,5 +26,6 @@ namespace ViewModelBase
         public ICommand FolderOpenCommand { get; }
 
         public ICommand SearchWordCommand { get; }
+
     }
 }
