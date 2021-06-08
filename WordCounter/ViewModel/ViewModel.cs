@@ -258,7 +258,7 @@ namespace WordCounter
         }
 
         /// <summary>
-        /// This function sets up the list of results binded in the UI.
+        /// This function sets up the list of binded results in the UI.
         /// </summary>
         private void updateDataGridUsingData(DirectoryAccess da)
         {
